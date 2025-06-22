@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sim Luu Gia Bao - CV</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      color: white;
+      background: url('/image/back1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    .hero {
+      background: url("/mnt/data/ee7722a3-7a85-48ef-b0bf-64a46c41f9ea.png") no-repeat center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 80px;
+      text-align: center;
+    }
+
+    .hero small {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #d4af37;
+      color: black;
+      border-color: #d4af37;
+    }
+
+    section {
+      padding: 100px 80px;
+      background: rgba(0, 0, 0, 0.85);
+      border-top: 1px solid #333;
+    }
+
+    section h2 {
+      color: #d4af37;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    section p {
+      font-size: 18px;
+      color: #ccc;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .hobby-container {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hobby {
+      max-width: 250px;
+      text-align: center;
+    }
+
+    .hobby img {
+      width: 200px;
+      margin-bottom: 20px;
+      
+    }
+
+    .skill {
+      margin-bottom: 15px;
+    }
+
+    .skill span {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 18px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background-color: #d4af37;
+      width: 0;
+      border-radius: 10px 0 0 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    form button {
+      padding: 12px 30px;
+      background: #d4af37;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #0a0a0a;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Gia Bao</div>
+    <nav>
+      <a href="#profile">Profile</a>
+      <a href="#education">Education</a>
+      <a href="#hobby">Hobby</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <small>HELLO I'M</small>
+      <h1>Sim Luu Gia Bao<br><span>Web Developer & Designer</span></h1>
+      <button onclick="document.getElementById('profile').scrollIntoView({behavior:'smooth'})">VIEW MY PROFILE</button>
+    </div>
+  </div>
+
+  <section id="profile">
+    <h2>Profile</h2>
+        <p>,<b>Họ và tên:</b> Sim Lưu Gia Bảo</p>
+        <p><b>MSSV:</b> 087204007397</p>
+        <p><b>Ngày sinh:</b> 19/01/2004</p>
+        <p><b>Chuyên ngành:</b> Công nghệ thông tin</p>
+        <p><b>Email: </b>simbao190104@gmail.com</p>
+        <p><b>Số điện thoại:</b> 0369192801</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p>2023 - 2027: Đại học Giao Thông Vận Tải TP. Hồ Chí Minh<br>Chuyên ngành: Công nghệ thông tin</p>
+  </section>
+
+  <section id="hobby">
+    <h2>My Hobby</h2>
+    <p>Những điều tôi yêu thích ngoài lập trình</p>
+    <div class="hobby-container">
+      <div class="hobby">
+        <img src="/image/listenmusic.jpg" alt="Music">
+        <h3>Nghe nhạc</h3>
+      </div>
+      <div class="hobby">
+        <img src="/image/dogplaygame.jpg" alt="Game">
+        <h3>Chơi game</h3>
+      </div>
+      <div class="hobby">
+        <img src="/image/dogplaysport1.jpg" alt="Design">
+        <h3>Thể thao</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p>2021-2022: Baker at Pizza Hut</p>
+    <p>2023-2024: Barista at Phuc Long</p>
+    <p>2024-2025: Barista at Starbucks</p>
+    <p></p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="content-box">
+      <div class="skill">
+        <span>Python</span>
+        <div class="bar">
+          <div class="fill" style="width: 50%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <span>C</span>
+        <div class="bar">
+          <div class="fill" style="width: 70%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <span>C++</span>
+        <div class="bar">
+          <div class="fill" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill">
+        <span>JavaScript</span>
+        <div class="bar">
+          <div class="fill" style="width: 70%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Nếu bạn muốn làm việc hoặc kết nối với tôi, hãy để lại thông tin bên dưới.</p>
+    <form>
+      <label for="name">Full name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br>
+      <label for="phone">Phone number:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    Made by Sim Luu Gia Bao
+  </footer>
+
+</body>
+</html>
