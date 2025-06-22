@@ -50,8 +50,6 @@
     }
 
     .hero {
-      background: url("back1.jpg") no-repeat center;
-      background-size: cover;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -60,23 +58,46 @@
       text-align: center;
     }
 
-    .hero small {
+    .hero-content {
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #d4af37;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text small {
       font-size: 14px;
       color: #ccc;
       margin-bottom: 10px;
       display: block;
     }
 
-    .hero h1 {
-      font-size: 60px;
+    .hero-text h1 {
+      font-size: 50px;
       line-height: 1.2;
     }
 
-    .hero h1 span {
+    .hero-text h1 span {
       color: #d4af37;
     }
 
-    .hero button {
+    .hero-text button {
       margin-top: 30px;
       padding: 12px 30px;
       font-size: 16px;
@@ -87,7 +108,7 @@
       transition: 0.3s;
     }
 
-    .hero button:hover {
+    .hero-text button:hover {
       background: #d4af37;
       color: black;
       border-color: #d4af37;
@@ -117,45 +138,81 @@
     .hobby-container {
       display: flex;
       justify-content: center;
-      gap: 60px;
       flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .hobby {
-      max-width: 250px;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
       text-align: center;
+      width: 200px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hobby:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
     .hobby img {
-      width: 200px;
-      margin-bottom: 20px;
-      
-    }
-
-    .skill {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
       margin-bottom: 15px;
+      border: 3px solid #d4af37;
     }
 
-    .skill span {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
+    .hobby h3 {
+      color: #d4af37;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .skill-card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+      color: #d4af37;
+      font-size: 20px;
     }
 
     .bar {
       width: 100%;
-      height: 18px;
-      background-color: #e0e0e0;
+      height: 12px;
+      background-color: #333;
       border-radius: 10px;
       overflow: hidden;
+      margin-bottom: 10px;
     }
 
     .fill {
       height: 100%;
-      background-color: #d4af37;
+      background: linear-gradient(to right, #d4af37, #ffe680);
       width: 0;
-      border-radius: 10px 0 0 10px;
-      transition: width 1s ease-in-out;
+      transition: width 1.5s ease-in-out;
+    }
+
+    .percent {
+      color: #ccc;
+      font-size: 14px;
     }
 
     form {
@@ -202,21 +259,24 @@
   </header>
 
   <div class="hero">
-    <div>
-      <small>HELLO I'M</small>
-      <h1>Sim Luu Gia Bao<br><span>Web Developer & Designer</span></h1>
-      <button onclick="document.getElementById('profile').scrollIntoView({behavior:'smooth'})">VIEW MY PROFILE</button>
+    <div class="hero-content">
+      <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
+      <div class="hero-text">
+        <small>HELLO I'M</small>
+        <h1>Sim Luu Gia Bao<br><span>Web Developer & Designer</span></h1>
+        <button onclick="document.getElementById('profile').scrollIntoView({behavior:'smooth'})">VIEW MY PROFILE</button>
+      </div>
     </div>
   </div>
 
   <section id="profile">
     <h2>Profile</h2>
-        <p>,<b>Họ và tên:</b> Sim Lưu Gia Bảo</p>
-        <p><b>MSSV:</b> 087204007397</p>
-        <p><b>Ngày sinh:</b> 19/01/2004</p>
-        <p><b>Chuyên ngành:</b> Công nghệ thông tin</p>
-        <p><b>Email: </b>simbao190104@gmail.com</p>
-        <p><b>Số điện thoại:</b> 0369192801</p>
+    <p><b>Họ và tên:</b> Sim Lưu Gia Bảo</p>
+    <p><b>MSSV:</b> 087204007397</p>
+    <p><b>Ngày sinh:</b> 19/01/2004</p>
+    <p><b>Chuyên ngành:</b> Công nghệ thông tin</p>
+    <p><b>Email:</b> simbao190104@gmail.com</p>
+    <p><b>Số điện thoại:</b> 0369192801</p>
   </section>
 
   <section id="education">
@@ -237,7 +297,7 @@
         <h3>Chơi game</h3>
       </div>
       <div class="hobby">
-        <img src="/image/dogplaysport1.jpg" alt="Design">
+        <img src="/image/dogplaysport1.jpg" alt="Sport">
         <h3>Thể thao</h3>
       </div>
     </div>
@@ -248,36 +308,41 @@
     <p>2021-2022: Baker at Pizza Hut</p>
     <p>2023-2024: Barista at Phuc Long</p>
     <p>2024-2025: Barista at Starbucks</p>
-    <p></p>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
-    <h2>Skills</h2>
-    <div class="content-box">
-      <div class="skill">
-        <span>Python</span>
-        <div class="bar">
-          <div class="fill" style="width: 50%;"></div>
-        </div>
+    <h2>Kỹ năng</h2>
+    <p>Những công nghệ tôi làm việc</p>
+    <div class="skills-grid">
+      <div class="skill-card" data-percent="90">
+        <h3>HTML</h3>
+        <div class="bar"><div class="fill"></div></div>
+        <p class="percent">0%</p>
       </div>
-      <div class="skill">
-        <span>C</span>
-        <div class="bar">
-          <div class="fill" style="width: 70%;"></div>
-        </div>
+      <div class="skill-card" data-percent="85">
+        <h3>CSS</h3>
+        <div class="bar"><div class="fill"></div></div>
+        <p class="percent">0%</p>
       </div>
-      <div class="skill">
-        <span>C++</span>
-        <div class="bar">
-          <div class="fill" style="width: 80%;"></div>
-        </div>
+      <div class="skill-card" data-percent="80">
+        <h3>JavaScript</h3>
+        <div class="bar"><div class="fill"></div></div>
+        <p class="percent">0%</p>
       </div>
-      <div class="skill">
-        <span>JavaScript</span>
-        <div class="bar">
-          <div class="fill" style="width: 70%;"></div>
-        </div>
+      <div class="skill-card" data-percent="75">
+        <h3>React</h3>
+        <div class="bar"><div class="fill"></div></div>
+        <p class="percent">0%</p>
+      </div>
+      <div class="skill-card" data-percent="70">
+        <h3>Node.js</h3>
+        <div class="bar"><div class="fill"></div></div>
+        <p class="percent">0%</p>
+      </div>
+      <div class="skill-card" data-percent="65">
+        <h3>Database</h3>
+        <div class="bar"><div class="fill"></div></div>
+        <p class="percent">0%</p>
       </div>
     </div>
   </section>
@@ -291,7 +356,7 @@
       <label for="email">Email:</label><br>
       <input type="email" id="email" name="email" required><br>
       <label for="phone">Phone number:</label><br>
-      <input type="text" id="name" name="name" required><br>
+      <input type="text" id="phone" name="phone" required><br>
       <button type="submit">Send</button>
     </form>
   </section>
@@ -299,6 +364,35 @@
   <footer>
     Made by Sim Luu Gia Bao
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.skill-card').forEach(card => {
+            const percent = parseInt(card.dataset.percent);
+            const fill = card.querySelector('.fill');
+            const percentText = card.querySelector('.percent');
+            let current = 0;
+            fill.style.width = '0%';
+            percentText.textContent = '0%';
+
+            const interval = setInterval(() => {
+              if (current >= percent) clearInterval(interval);
+              else {
+                current++;
+                fill.style.width = current + '%';
+                percentText.textContent = current + '%';
+              }
+            }, 15);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(document.querySelector('#skills'));
+  </script>
 
 </body>
 </html>
