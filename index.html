@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Nhóm Phát Triển</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape1 {
+            top: 20%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            top: 60%;
+            right: 10%;
+            width: 60px;
+            height: 60px;
+            background: white;
+            transform: rotate(45deg);
+            animation-delay: 2s;
+        }
+
+        .shape3 {
+            bottom: 20%;
+            left: 20%;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            animation-delay: 4s;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-member:hover::before {
+            opacity: 0.1;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-role {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-description {
+            color: #777;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .member-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .member-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(45deg, #764ba2, #667eea);
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Nhóm 9</a>
+            <ul class="nav-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#team">Đội ngũ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        
+        <div class="hero-content">
+            <h1>Gặp gỡ những người tuyệt vời đứng sau thành công của chúng tôi</h1>
+            <p>Lập trình với trái tim, phát triển với tầm nhìn.</p>
+            <a href="#team" class="cta-button">Khám phá đội ngũ</a>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title fade-in">Đội Ngũ Của Chúng Tôi</h2>
+            
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-avatar">
+                        <img src="nhl.png" alt="Nguyễn Hữu Lộc">
+                    </div>
+                    <h3 class="member-name">Nguyễn Hữu Lộc</h3>
+                    <p class="member-role">Front End Website Developer</p>
+                    <p class="member-description">Sinh viên năm 2 ngành Công nghệ thông tin. Đã tham gia các dự án web và di động, hiện đang làm việc tại VietMap phát triển live-server về tai nạn giao thông.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Front-end</span>
+                    </div>
+                    <a href="loc.html" class="member-link">Xem chi tiết</a>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="member-avatar">
+                        <img src="tam.jpg" alt="Lê Thành Tâm">
+                    </div>
+                    <h3 class="member-name">Lê Thành Tâm</h3>
+                    <p class="member-role">Web Designer & Developer</p>
+                    <p class="member-description">Chuyên gia thiết kế giao diện và phát triển web tương tác. Yêu thích thiết kế UX và xây dựng thương hiệu cá nhân với website hiện đại.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">HTML5/CSS3</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Adobe XD</span>
+                    </div>
+                    <a href="tam.html" class="member-link">Xem chi tiết</a>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="member-avatar">
+                        <img src="path/to/anh-image.jpg" alt="Anh">
+                    </div>
+                    <h3 class="member-name">Anh</h3>
+                    <p class="member-role">Backend Developer</p>
+                    <p class="member-description">Lập trình sáng tạo - Biến ý tưởng thành giải pháp. Chuyên gia về hệ thống backend và database.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                    <a href="anh.html" class="member-link">Xem chi tiết</a>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="member-avatar">
+                        <img src="back1.jpg" alt="Bảo">
+                    </div>
+                    <h3 class="member-name">Bảo</h3>
+                    <p class="member-role">Mobile Developer</p>
+                    <p class="member-description">Phát triển ứng dụng di động với tình yêu và đam mê. Luôn cập nhật xu hướng công nghệ mới nhất.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">iOS</span>
+                        <span class="skill-tag">Android</span>
+                    </div>
+                    <a href="bao.html" class="member-link">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nhóm 9. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Floating shapes animation
+        document.querySelectorAll('.floating-shape').forEach((shape, index) => {
+            const duration = 6000 + (index * 1000);
+            const delay = index * 2000;
+            
+            setInterval(() => {
+                shape.style.transform = `translateY(${Math.sin(Date.now() / duration) * 20}px)`;
+            }, 16);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (hero && heroContent) {
+                const rate = scrolled * -0.5;
+                hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+                heroContent.style.transform = `translate3d(0, ${scrolled * -0.3}px, 0)`;
+            }
+        });
+
+        // Interactive skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Team member card interactions
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click feedback for member links
+        document.querySelectorAll('.member-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-2px)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
