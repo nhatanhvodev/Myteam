@@ -222,9 +222,10 @@
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
+            justify-items: center;
         }
 
         .team-member {
@@ -236,6 +237,8 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            max-width: 300px;
+            width: 100%;
         }
 
         .team-member::before {
@@ -385,7 +388,13 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -488,9 +497,9 @@
 
                 <div class="team-member fade-in">
                     <div class="member-avatar">
-                        <img src="nanh.jpg" alt="Anh">
+                        <img src="nanh.jpg" alt="Võ Lý Nhật Anh">
                     </div>
-                    <h3 class="member-name">Anh</h3>
+                    <h3 class="member-name">Võ Lý Nhật Anh</h3>
                     <p class="member-role">Backend Developer</p>
                     <p class="member-description">Lập trình sáng tạo - Biến ý tưởng thành giải pháp. Chuyên gia về hệ thống backend và database.</p>
                     <div class="member-skills">
@@ -504,9 +513,9 @@
 
                 <div class="team-member fade-in">
                     <div class="member-avatar">
-                        <img src="back1.jpg" alt="Bảo">
+                        <img src="back1.jpg" alt="Sim Lưu Gia Bảo">
                     </div>
-                    <h3 class="member-name">Bảo</h3>
+                    <h3 class="member-name">Sim Lưu Gia Bảo</h3>
                     <p class="member-role">Mobile Developer</p>
                     <p class="member-description">Phát triển ứng dụng di động với tình yêu và đam mê. Luôn cập nhật xu hướng công nghệ mới nhất.</p>
                     <div class="member-skills">
@@ -516,6 +525,22 @@
                         <span class="skill-tag">Android</span>
                     </div>
                     <a href="bao.html" class="member-link">Xem chi tiết</a>
+                </div>
+
+                <div class="team-member fade-in">
+                    <div class="member-avatar">
+                        <img src="avatar.jpg" alt="Bảo">
+                    </div>
+                    <h3 class="member-name">Nguyễn Trí Dũng</h3>
+                    <p class="member-role">Full Stack Developer</p>
+                    <p class="member-description">Lập trình viên đa tài với kinh nghiệm phát triển cả frontend và backend. Đam mê tạo ra những giải pháp công nghệ toàn diện và hiệu quả.</p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                    <a href="dung.html" class="member-link">Xem chi tiết</a>
                 </div>
             </div>
         </div>
